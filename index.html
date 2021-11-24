@@ -13,29 +13,29 @@
 
   <!-- NAVBAR -->
   <nav class=" z-depth-0 grey lighten-4">
-  <div class="nav-wrapper container">
-    <a href="#" class="brand-logo">
-      <img src="img/logo.png" style="width: 180px; margin-top: 10px;">
-    </a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li class="logged-in" style="display: none;">
-        <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-      </li>
-      <li class="logged-in" style="display: none;">
-        <a href="#" class="grey-text" id="logout">Logout</a>
-      </li>
-      <li class="logged-in" style="display: none;">
-        <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
-      </li>
-      <li class="logged-out" style="display: none;">
-        <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
-      </li>
-      <li class="logged-out" style="display: none;">
-        <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
-      </li>
-      </span>
-    </ul>
-  </div>
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">
+        <img src="img/logo.png" style="width: 180px; margin-top: 10px;">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="logged-in" style="display: none;">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in" style="display: none;">
+          <a href="#" class="grey-text" id="logout">Logout</a>
+        </li>
+        <li class="logged-in" style="display: none;">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+        </span>
+      </ul>
+    </div>
   </nav>
 
   <!-- SIGN UP MODAL -->
@@ -50,6 +50,10 @@
         <div class="input-field">
           <input type="password" id="signup-password" required />
           <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-bio" required />
+          <label for="signup-bio">One Line Bio</label>
         </div>
         <button class="btn yellow darken-2 z-depth-0">Sign up</button>
       </form>
@@ -103,7 +107,7 @@
   <!-- GUIDE LIST -->
   <div class="container" style="margin-top: 40px;">
     <ul class="collapsible z-depth-0 guides" style="border: none;">
-     
+
     </ul>
   </div>
 

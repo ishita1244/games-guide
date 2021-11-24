@@ -1,5 +1,4 @@
 
-
 //listen for auth status changes
 auth.onAuthStateChanged(user => {
     // console.log(user);
@@ -8,6 +7,8 @@ auth.onAuthStateChanged(user => {
         db.collection('guides').onSnapshot((snapshot) => {
             setupGuides(snapshot.docs);
             setUpUI(user);
+        }, err => {
+            console.log(err.message);
         })
     }
     else {
@@ -18,18 +19,18 @@ auth.onAuthStateChanged(user => {
 
 
 //create guide
-const createForm=document.querySelector('#create-form');
-createForm.addEventListener('submit',(e)=>{
+const createForm = document.querySelector('#create-form');
+createForm.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('guides').add({
-        title:createForm['title'].value,
-        content:createForm['content'].value
-    }).then(()=>{
+        title: createForm['title'].value,
+        content: createForm['content'].value
+    }).then(() => {
         //clear the form and close the modal
         const modal = document.querySelector('#modal-create');
         M.Modal.getInstance(modal).close();
         createForm.reset();
-    }).catch((err)=>{
+    }).catch((err) => {
         console.log(err.message);
     })
 })
@@ -46,6 +47,11 @@ signupForm.addEventListener('submit', (e) => {
 
     //sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
+        return db.collection('users').doc(cred.user.uid).set({
+            bio: signupForm['signup-bio'].value
+        })
+
+    }).then(() => {
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
         signupForm.reset();
